@@ -1,3 +1,6 @@
+var mediafinal = 0;
+
+
 function pecaNotas()
 {
 let voto = prompt(`introduzir uma notas`);
@@ -18,14 +21,46 @@ return media;
 }
 
 function exibeMedia(){
-let mediafinal = mediaNotas();
+mediafinal = mediaNotas();
 console.log('A media é: ' + mediafinal);
+document.getElementById('risultatomedia').textContent = 'A media é: ' + mediafinal;
 return mediafinal;
 
 }
 
-function exibeMensagemBotton(){
 
+
+function categoria(voto) { 
+   switch (true) {
+        case (voto >=0 && voto <=2):
+            console.log(`Muito fraco`);
+            document.getElementById('resultadocategoria').textContent = 'O estudante obteve um '+ voto +' que corresponde a um Muito fraco';
+            break
+        case (voto >=3 && voto <=4):
+            console.log(`Insuficiente`);
+            document.getElementById('resultadocategoria').textContent = 'O estudante obteve um '+ voto +' que corresponde a um Insuficiente';
+            break
+        case (voto >=5 && voto <=6):
+            console.log(`Suficiente`);
+            document.getElementById('resultadocategoria').textContent = 'O estudante obteve um '+ voto +' que corresponde a um Suficiente';
+            break
+        case (voto >=7 && voto <= 8):
+            console.log(`Bom`);
+            document.getElementById('resultadocategoria').textContent = 'O estudante obteve um '+ voto +' que corresponde a um Bom';
+            break
+        case (voto >=9 && voto <= 10):
+            console.log(`Excelente`);
+            document.getElementById('resultadocategoria').textContent = 'O estudante obteve um '+ voto +' que corresponde a um Excelente';
+            break
+        default:
+            console.log(`Valor fora do intervalo permitido.`);
+            document.getElementById('resultadocategoria').textContent = 'O estudante obteve um '+ voto +', Valor fora do intervalo permitido.';
+            break
+    }
 }
 
-exibeMedia();
+
+function exibeCategoria() {
+    categoria(mediafinal);
+}
+
