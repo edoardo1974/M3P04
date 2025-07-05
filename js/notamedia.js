@@ -1,36 +1,32 @@
-var mediafinal = 0;
+var mediafinal = 0;// Variable to store the final average
 
-
-function pecaNotas()
+function pecaNotas()// Function to prompt the user for a note
 {
 let voto = prompt(`introduzir uma notas`);
     return Number(voto);
 }
 
-function mediaNotas(){
+function mediaNotas(){// Function to calculate the average of 6 notes
+// This function will call the pecaNotas function 6 times to get the notes and then
 let total = 0;
-
-
 for (let i=0; i<6; i++){
     let nota = pecaNotas()
     total += nota;
-    
 }
-let media = total / 6;
+let media = Math.ceil(total / 6);
 return media;
 }
 
-function exibeMedia(){
+function exibeMedia(){// Function to display the average of the notes
+// This function will call the mediaNotas function to calculate the average and then display it
 mediafinal = mediaNotas();
 console.log('A media é: ' + mediafinal);
 document.getElementById('risultatomedia').textContent = 'A media é: ' + mediafinal;
 return mediafinal;
-
 }
 
 
-
-function categoria(voto) { 
+function categoria(voto) { // Function to categorize the average note
    switch (true) {
         case (voto >=0 && voto <=2):
             console.log(`Muito fraco`);
@@ -60,7 +56,8 @@ function categoria(voto) {
 }
 
 
-function exibeCategoria() {
+function exibeCategoria() {// Function to display the category of the average note
+// This function will call the categoria function to categorize the average note and then display it
     categoria(mediafinal);
 }
 
